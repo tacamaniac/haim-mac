@@ -4,6 +4,8 @@
 
 HAIM pairs a SwiftUI desktop client with a local FastAPI bridge so you can talk to Hermes in a Mac-native UI instead of only through the CLI.
 
+![HAIM agent picker and chat UI](docs/screenshots/haim-agent-picker.png)
+
 ## Status
 
 Experimental, but real.
