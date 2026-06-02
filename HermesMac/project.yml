@@ -1,0 +1,40 @@
+name: HermesMac
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+  defaultConfig: Debug
+
+configs:
+  Debug: debug
+  Release: release
+
+targets:
+  HermesMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/HermesMac
+        excludes:
+          - Info.plist
+    postBuildScripts:
+      - name: Bundle Hermes bridge
+        script: |
+          BRIDGE_DESTINATION="$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/hermes-bridge"
+          rm -rf "$BRIDGE_DESTINATION"
+          /usr/bin/ditto --norsrc "$SRCROOT/../hermes-bridge" "$BRIDGE_DESTINATION"
+          find "$BRIDGE_DESTINATION" -name __pycache__ -type d -prune -exec rm -rf {} +
+    info:
+      path: Sources/HermesMac/Info.plist
+      properties:
+        CFBundleIconFile: AppIcon
+        NSHighResolutionCapable: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.haimmac.HermesMac
+        SWIFT_VERSION: 5.0
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: NO
+        INFOPLIST_FILE: Sources/HermesMac/Info.plist
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: NO

@@ -1,0 +1,46 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+*.egg
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+# Logs (runtime output — not source)
+*.log
+*.jsonl
+
+# Swift Package Manager build artifacts
+.build/
+.swiftpm/
+
+# Xcode / SwiftUI
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserdatad/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+build/
+
+# Editor
+.vscode/
+*.swp
+*.swo
